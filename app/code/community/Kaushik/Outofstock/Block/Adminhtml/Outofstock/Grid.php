@@ -1,5 +1,11 @@
 <?php
-
+/**
+ *
+ * @author Bikash Kaushik
+ * 
+ * @category    Kaushik
+ * @package     Kaushik_Outofstock
+ */
 class Kaushik_Outofstock_Block_Adminhtml_Outofstock_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
   public function __construct()
@@ -41,7 +47,6 @@ class Kaushik_Outofstock_Block_Adminhtml_Outofstock_Grid extends Mage_Adminhtml_
           'index'     => 'customer_type',
           'type'      => 'options',
           'renderer'  => 'Kaushik_Outofstock_Block_Adminhtml_Outofstock_Renderer_Customergroup',
-          //'filter_condition_callback' => array($this, '_filterCategoriesCondition'),
       ));
 
       /*$this->addColumn('product_id', array(
@@ -73,18 +78,6 @@ class Kaushik_Outofstock_Block_Adminhtml_Outofstock_Grid extends Mage_Adminhtml_
           'index'     => 'created_time',
       ));
 
-      $this->addColumn('status', array(
-          'header'    => Mage::helper('outofstock')->__('Status'),
-          'align'     => 'left',
-          'width'     => '80px',
-          'index'     => 'status',
-          'type'      => 'options',
-          'options'   => array(
-              1 => 'Waiting',
-              2 => 'Notified',
-          ),
-      ));
-
         $this->addColumn('action',
             array(
                 'header'    =>  Mage::helper('outofstock')->__('Action'),
@@ -110,14 +103,6 @@ class Kaushik_Outofstock_Block_Adminhtml_Outofstock_Grid extends Mage_Adminhtml_
       return parent::_prepareColumns();
   }
 
-  // protected function _filterCategoriesCondition($collection, $column)
-  // {
-  //     if (!$value = $column->getFilter()->getValue()) {
-  //         return;
-  //     }
-  //     $this->getCollection()->addFieldToFilter('customer_id', array('finset' => $value));
-  // }
-
     protected function _prepareMassaction()
     {
         $this->setMassactionIdField('outofstock_id');
@@ -128,29 +113,12 @@ class Kaushik_Outofstock_Block_Adminhtml_Outofstock_Grid extends Mage_Adminhtml_
              'url'      => $this->getUrl('*/*/massDelete'),
              'confirm'  => Mage::helper('outofstock')->__('Are you sure?')
         ));
-
-        $statuses = Mage::getSingleton('outofstock/status')->getOptionArray();
-
-        array_unshift($statuses, array('label'=>'', 'value'=>''));
-        $this->getMassactionBlock()->addItem('status', array(
-             'label'=> Mage::helper('outofstock')->__('Change status'),
-             'url'  => $this->getUrl('*/*/massStatus', array('_current'=>true)),
-             'additional' => array(
-                    'visibility' => array(
-                         'name' => 'status',
-                         'type' => 'select',
-                         'class' => 'required-entry',
-                         'label' => Mage::helper('outofstock')->__('Status'),
-                         'values' => $statuses
-                     )
-             )
-        ));
         return $this;
     }
 
   public function getRowUrl($row)
   {
-      return false;//$this->getUrl('*/*/edit', array('id' => $row->getId()));
+      return false;
   }
 
 }

@@ -1,8 +1,15 @@
 <?xml version="1.0"?>
+<!--
+/**
+ * Module configuration
+ *
+ * @author Bikash Kaushik
+ */
+-->
 <config>
     <modules>
         <Kaushik_Outofstock>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </Kaushik_Outofstock>
     </modules>
     <frontend>
@@ -142,13 +149,41 @@
                 <class>Kaushik_Outofstock_Helper</class>
             </outofstock>
         </helpers>
+		<events>
+			<catalog_product_save_after>
+                <observers>
+                    <outofstock_stock_item_save>
+                        <class>outofstock/observer</class>
+                        <method>stockChangeItem</method>
+                    </outofstock_stock_item_save>
+                </observers>
+            </catalog_product_save_after>
+            <sales_order_item_cancel>
+                <observers>
+                    <outofstock_order_cancel>
+                        <class>outofstock/observer</class>
+                        <method>cancelOrderItem</method>
+                    </outofstock_order_cancel>
+                </observers>
+            </sales_order_item_cancel>
+		</events>
         <template>
             <email>
-                <outofstock_email_template module="outofstock">
-                    <label>Existing User Quote Template</label>
-                    <file>outofstock/outofstock.html</file>
+                <outofstock_email_subscription module="outofstock">
+                    <label>Stock Email Subscription</label>
+                    <file>outofstock/subscribe.html</file>
                     <type>html</type>
-                </outofstock_email_template>
+                </outofstock_email_subscription>
+				<outofstock_email_unsubscribe module="outofstock">
+                    <label>Stock Email Unsubscribe</label>
+                    <file>outofstock/unsubscribe.html</file>
+                    <type>html</type>
+                </outofstock_email_unsubscribe>
+				<outofstock_email_productinstock module="outofstock">
+                    <label>Stock Email for Product Back In Stock</label>
+                    <file>outofstock/instock.html</file>
+                    <type>html</type>
+                </outofstock_email_productinstock>
             </email>
         </template>
     </global>
