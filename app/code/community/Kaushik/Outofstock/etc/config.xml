@@ -9,7 +9,7 @@
 <config>
     <modules>
         <Kaushik_Outofstock>
-            <version>1.0.2</version>
+            <version>1.0.3</version>
         </Kaushik_Outofstock>
     </modules>
     <frontend>

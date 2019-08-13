@@ -22,8 +22,8 @@ class Kaushik_Outofstock_Model_Adminhtml_Observer
         if (!isset($collection)) return;
 
         if (is_a($collection, 'Mage_Catalog_Model_Resource_Product_Collection')) {
-            $collection->getSelect()->joinLeft( array('oos'=> 'outofstock'), 'oos.product_id = e.entity_id', array('total_subs'=>'count(oos.product_id)'))->group('e.entity_id');
-            //echo $collection->getSelect()->__toString();exit;
+			$stockTable = Mage::getModel('core/resource')->getTableName('outofstock');
+            $collection->getSelect()->joinLeft( array('oos'=> $stockTable), 'oos.product_id = e.entity_id', array('total_subs'=>'count(oos.product_id)'))->group('e.entity_id');
         }
     }
 
