@@ -67,7 +67,8 @@ class Kaushik_Outofstock_IndexController extends Mage_Core_Controller_Front_Acti
 					$response['status'] = 'failure';
 				}
 			}
-			echo json_encode($response);
+			$this->getResponse()->setHeader('Content-type', 'application/json',true);
+			$this->getResponse()->setBody(json_encode($response));
 		}
     }
 
@@ -78,7 +79,6 @@ class Kaushik_Outofstock_IndexController extends Mage_Core_Controller_Front_Acti
 			$model = Mage::getModel('outofstock/outofstock')->getCollection();
 			$model->addFieldToFilter('email', $data['email']);
 			$model->addFieldToFilter('product_id', $data['product_id']);
-			//print_r($model->getData());
 			try {
 				$model->walk('delete');
 				$response['msg'] = 'Unsubscribed successfully.';
@@ -111,7 +111,8 @@ class Kaushik_Outofstock_IndexController extends Mage_Core_Controller_Front_Acti
 				$response['msg'] = $e->getMessage();
 				$response['status'] = 'failure';
 			}
-			echo json_encode($response);
+			$this->getResponse()->setHeader('Content-type', 'application/json',true);
+			$this->getResponse()->setBody(json_encode($response));
 		}
     }
 

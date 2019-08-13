@@ -19,7 +19,7 @@ class Kaushik_Outofstock_Model_Observer {
 						$email = $data->getEmail();
 						$outofstock_id = $data->getOutofstockId();
 						try {
-							$_customer = Mage::getModel('customer/customer')->setWebsiteId(Mage::app()->getWebsite()->getId());
+							$_customer = Mage::getModel('customer/customer')->setWebsiteId(1);
 							$_customer->loadByEmail($email);
 							$recepientName = $email;
 							$recepientemail = $email;
@@ -40,6 +40,7 @@ class Kaushik_Outofstock_Model_Observer {
 							$email_template->setSenderEmail($senderemail);
 							$email_template->setSenderName($sendername);
 							$email_template->send($recepientemail, $recepientName, $vars, $storeId);
+							$translate->setTranslateInline(true);
 							
 							$deleteInfo = Mage::getModel('outofstock/outofstock');
 							$deleteInfo->setOutofstockId($outofstock_id)->delete();

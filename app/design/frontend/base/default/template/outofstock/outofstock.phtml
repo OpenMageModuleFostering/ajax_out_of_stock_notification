@@ -38,17 +38,16 @@
         var product_id = jQuery("#product_id").val();
         var postUrl = '<?php echo $this->getUrl() ?>outofstock/index/subscribe';
         jQuery.post(postUrl, {email:email,product_id:product_id}, function( data ) {
-            var obj = jQuery.parseJSON(data);
-            if(obj.status == "success") {
-                jQuery( ".login-message" ).html('<ul class="messages"><li class="success-msg"><ul><li style="color:#14595c"><span>'+obj.msg+'</span></li></ul></li></ul>');
+            if(data.status == "success") {
+                jQuery( ".login-message" ).html('<ul class="messages"><li class="success-msg"><ul><li style="color:#14595c"><span>'+data.msg+'</span></li></ul></li></ul>');
                 jQuery( ".login-message" ).fadeIn();
                 jQuery(".outofstock-notify").hide();
-            } else if(obj.status == "failure"){
-                jQuery( ".login-message" ).html('<ul class="messages"><li class="error-msg"><ul><li style="color:#14595c"><span>'+obj.msg+'</span></li></ul></li></ul>');
+            } else if(data.status == "failure"){
+                jQuery( ".login-message" ).html('<ul class="messages"><li class="error-msg"><ul><li style="color:#14595c"><span>'+data.msg+'</span></li></ul></li></ul>');
                 jQuery( ".login-message" ).fadeIn();
                 jQuery("#subscribe").removeClass('disabled');
-            } else if(obj.status == "warning"){
-                jQuery( ".login-message" ).html('<ul class="messages"><li class="error-msg"><ul><li style="color:#14595c"><span>'+obj.msg+'</span></li></ul></li></ul>');
+            } else if(data.status == "warning"){
+                jQuery( ".login-message" ).html('<ul class="messages"><li class="error-msg"><ul><li style="color:#14595c"><span>'+data.msg+'</span></li></ul></li></ul>');
                 jQuery( ".login-message" ).fadeIn();
                 jQuery("#subscribe").removeClass('disabled');
             }
