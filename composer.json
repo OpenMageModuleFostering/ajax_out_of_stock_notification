@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/ajax_out_of_stock_notification",
+    "type": "magento-module",
+    "license": "Open-Software-License",
+    "homepage": "",
+    "description": "This extension allows both customers and guest to sign up for alerts once out of stock products are available.",
+    "authors": [
+    {
+        "name": "Bikash Kaushik",
+        "email": "bikashkaushik10@gmail.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>ajax_out_of_stock_notification</name>
+    <version>1.0.0</version>
+    <stability>stable</stability>
+    <license uri="https://opensource.org/licenses/osl-3.0.php">Open Software License</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>This extension allows both customers and guest to sign up for alerts once out of stock products are available.</summary>
+    <description>This extension adds a Notify button into product detail page for out of stock products. By clicking on this button, registered members &amp; guests can enter their email to receive notifications when products are in stock. When admin adds new inventory for a product and it becomes in stock, the system will send an email notification to customers who subscribed to that product. This extension helps store owners in inventory decision making about out of stock products based on subscriptions.</description>
+    <notes>First Release.</notes>
+    <authors><author><name>Bikash Kaushik</name><user>bikashkaushik</user><email>bikashkaushik10@gmail.com</email></author></authors>
+    <date>2017-01-05</date>
+    <time>06:17:25</time>
+    <contents><target name="mageetc"><dir name="modules"><file name="Kaushik_Outofstock.xml" hash="fd1e66f8a5bead211c2ea44092facfce"/></dir></target><target name="magecommunity"><dir name="Kaushik"><dir name="Outofstock"><dir name="Block"><dir name="Adminhtml"><dir name="Outofstock"><file name="Grid.php" hash="c005078b83898a6a530e9707e963660e"/><dir name="Renderer"><file name="Customergroup.php" hash="6f61885eb9edf31d11bf63c377ef163b"/><file name="Productname.php" hash="075b88440a10ad72feb9feaa1cb02b3a"/><file name="Productsku.php" hash="055505ace7ea75e3af4eabc27a09192d"/></dir></dir><file name="Outofstock.php" hash="7da318da3c745ce52a0b136fdd3b2d1f"/></dir><file name="Outofstock.php" hash="61d61ac94f1effb50fa605a3b3ffc015"/></dir><dir name="Helper"><file name="Data.php" hash="300e095c1c92671fdc9b33b900f6f282"/></dir><dir name="Model"><dir name="Adminhtml"><file name="Observer.php" hash="de5c63ffe094e4fc1941431b93bc366b"/></dir><dir name="Mysql4"><dir name="Outofstock"><file name="Collection.php" hash="c679943ae9ead796676f0b9cb5aeb708"/></dir><file name="Outofstock.php" hash="4d2a337d37c11b174d8652adf05c96f8"/></dir><file name="Outofstock.php" hash="585524ff6b1de528db940ec27591f60d"/><file name="Status.php" hash="6aca3bcdebce0753f5853f5fe4b009ca"/></dir><dir name="controllers"><dir name="Adminhtml"><file name="OutofstockController.php" hash="b1f10282d4ceaf5bd30e960a591c831a"/></dir><file name="IndexController.php" hash="62673cf4afe4d4ce88018a5daa107dae"/></dir><dir name="etc"><file name="adminhtml.xml" hash="72760cb708ffcc195e12a75a40e94f16"/><file name="config.xml" hash="5c665f4b357dbd67e1e383cddc9863e5"/><file name="system.xml" hash="8e9b17fe5cedbbb222c345f0784454ec"/></dir><dir name="sql"><dir name="outofstock_setup"><file name="mysql4-install-1.0.0.php" hash="a0e891081ddb04fb8eefd4a083ff6ac7"/></dir></dir></dir></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><file name="outofstock.xml" hash="8f11e51d42ac271810d0a891ec8a0bce"/></dir></dir></dir></dir><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="kaushik_outofstock.xml" hash="8d2c38a2d84647ee0822f8c1e762ad70"/></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.0.0</min><max>7.1.0</max></php></required></dependencies>
+</package>
