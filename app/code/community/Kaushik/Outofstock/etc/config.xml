@@ -9,7 +9,7 @@
 <config>
     <modules>
         <Kaushik_Outofstock>
-            <version>1.0.3</version>
+            <version>1.0.4</version>
         </Kaushik_Outofstock>
     </modules>
     <frontend>
@@ -32,13 +32,13 @@
     </frontend>
     <admin>
         <routers>
-			<outofstock>
-				<use>admin</use>
-				<args>
-					<module>Kaushik_Outofstock</module>
-					<frontName>outofstock</frontName>
-				</args>
-			</outofstock>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <outofstock before="Mage_Adminhtml">Kaushik_Outofstock_Adminhtml</outofstock>
+                    </modules>
+                </args>
+            </adminhtml>
         </routers>
     </admin>
     <adminhtml>
@@ -76,7 +76,7 @@
 					<items module="outofstock">
 						<title>Manage Subscriptions</title>
 						<sort_order>0</sort_order>
-						<action>outofstock/adminhtml_outofstock</action>
+						<action>adminhtml/outofstock_outofstockadmin</action>
 					</items>
 				</children>
 			</outofstock>

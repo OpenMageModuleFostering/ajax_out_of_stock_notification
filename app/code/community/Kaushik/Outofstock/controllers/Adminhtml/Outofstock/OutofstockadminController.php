@@ -1,6 +1,6 @@
 <?php
 
-class Kaushik_Outofstock_Adminhtml_OutofstockController extends Mage_Adminhtml_Controller_action
+class Kaushik_Outofstock_Adminhtml_Outofstock_OutofstockadminController extends Mage_Adminhtml_Controller_action
 {
 
 	protected function _initAction() {
