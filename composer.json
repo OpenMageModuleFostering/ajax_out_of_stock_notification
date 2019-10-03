@@ -1,5 +1,5 @@
 {
-    "name": "OpenMageModuleFostering\/ajax_out_of_stock_notification",
+    "name": "openmage-module-fostering\/ajax_out_of_stock_notification",
     "type": "magento-module",
     "license": "Open-Software-License",
     "homepage": "",
